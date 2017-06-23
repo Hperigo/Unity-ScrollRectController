@@ -49,6 +49,11 @@ public class ScrollRectController : UIBehaviour, IEndDragHandler, IBeginDragHand
 
 		if (scrollRect == null) 
 			scrollRect = GetComponent<ScrollRect>();
+			scrollRect.inertia = false;
+
+		if (scrollRect.movementType == ScrollRect.MovementType.Elastic) {
+			Debug.LogError ("ScrollRectController does not work with Elastic movement type, chage it to Clamped or Unrestricted");
+		}
 	}
 
 
